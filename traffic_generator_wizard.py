@@ -40,19 +40,6 @@ import logging
 from datetime import datetime, timezone
 import os
 
-# Check for Python 3
-if sys.version_info.major != 3:
-    print("Python 3 is required to run this script.")
-    sys.exit(1)
-
-# Check for netcat (nc) utility
-try:
-    subprocess.run(["nc", "--version"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
-except subprocess.CalledProcessError:
-    print("Netcat (nc) utility is required to run this script.")
-    print("Install netcat using: sudo apt-get install netcat")
-    sys.exit(1)
-
 LOG_FILE = os.path.join(os.getcwd(), "traffic_generator_wizard.log")
 
 logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG, format="%(asctime)s %(asctime)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S %Z")
